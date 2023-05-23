@@ -1,0 +1,12 @@
+.sign-up-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sign-up-form input[type="text"],
+.sign-up-form input[type="email"],
+.sign-up-form input[type="password"] {
+  width: 80%;
+  padding: 4px;
+  margin-bottom: 10px;
+}

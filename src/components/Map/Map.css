@@ -1,0 +1,37 @@
+.map-grid {
+    display: grid;
+    width: 40%;
+    min-width: 800px;
+    margin: auto;
+    grid-template-columns: repeat(6, 1fr);
+    background-image: url("https://i.imgur.com/KhjZx4F.jpg");
+    background-size: cover;
+    border: solid 2px powderblue;
+  }
+  
+  .map-grid-tile {
+    width: 100%;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .map-grid-tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  
+  .map-grid-tile:hover .map-grid-tooltip {
+    opacity: 1;
+  }
+  

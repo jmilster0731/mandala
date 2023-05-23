@@ -1,0 +1,19 @@
+.homepage-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set the wrapper to occupy the full viewport height */
+    background: black;
+  }
+  
+  .home-page-title {
+    text-align: center;
+    width: 80%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    margin: 5px auto 5px auto;
+  }
+  
+  .homepage-container {
+    flex-grow: 1; /* Let the container expand to fill the remaining space */
+  }
+  
