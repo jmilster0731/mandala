@@ -1,9 +1,7 @@
-import React, { useState } from "react";
 import EncounterOptions from "./ChildComponents/EncounterOptions";
 import BattleLog from "./ChildComponents/BattleLog"
 import PlayerInfo from "./ChildComponents/PlayerInfo";
 import useEncounterService from "../../utilities/encounter-service";
-import { usePlayer } from "../../utilities/player-service"; 
 import "./Encounter.css";
 
 const Encounter = ({ player, monsters, updatePlayer }) => {
@@ -13,8 +11,6 @@ const Encounter = ({ player, monsters, updatePlayer }) => {
     currentMonster,
     encounterComplete,
     handleEncounter,
-    calculateDamage,
-    getRandomCounterAttackText,
     handleAttack,
     handleNextEncounter,
     handleRun

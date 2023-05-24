@@ -5,6 +5,7 @@ import { usePlayer } from "../../utilities/player-service";
 import "./App.css";
 import NavBar from "../../components/NavBar/NavBar";
 import LoginPage from "../LoginPage/LoginPage";
+import PlayerProfilesPage from "../PlayerProfilesPage/PlayerProfilesPage";
 import HomePage from "../HomePage/HomePage";
 import ForestEncounterPage from "../ForestEncounterPage/ForestEncounterPage";
 import CampsitePage from "../CampsitePage/CampsitePage";
@@ -33,6 +34,12 @@ export default function App() {
               path="/campsite"
               element={
                 <CampsitePage player={player} updatePlayer={updatePlayer} />
+              }
+            />
+            <Route 
+              path="/profiles"
+              element={
+                <PlayerProfilesPage user={user} />
               }
             />
           </Routes>

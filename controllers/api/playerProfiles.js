@@ -2,13 +2,12 @@ const PlayerProfile = require('../../models/playerProfile');
 
 // Create a user profile
 async function createProfile(req, res) {
+  console.log(req.body)
   try {
-    // Retrieve the user ID from the authenticated user
-    const userId = req.user._id;
 
     // Create the new user profile with the provided data
     const userProfile = new PlayerProfile({
-      user: userId,
+      user: req.body.user,
       name: req.body.name,
       level: req.body.level,
       constitution: req.body.constitution,
@@ -41,11 +40,10 @@ async function createProfile(req, res) {
 // Delete a specific user profile
 async function deleteProfile(req, res) {
   try {
-    const userId = req.user._id;
     const profileId = req.params.id;
 
-    // Find and delete the user profile associated with the given ID
-    await PlayerProfile.findOneAndDelete({ _id: profileId, user: userId });
+    // Find and delete the user profile
+    await PlayerProfile.findOneAndDelete({ _id: profileId});
 
     res.sendStatus(204);
   } catch (error) {
@@ -87,8 +85,7 @@ async function updateProfile(req, res) {
 // Retrieve all user profiles associated with the user
 async function getAllProfiles(req, res) {
   try {
-    const userId = req.user._id;
-
+    const userId = req.params.id;
     // Find all user profiles associated with the given user ID
     const profiles = await PlayerProfile.find({ user: userId });
 

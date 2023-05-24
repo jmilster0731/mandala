@@ -19,6 +19,7 @@ app.use(express.static(path.join(__dirname, "build")));
 const port = process.env.PORT || 3001;
 
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/playerprofiles', require('./routes/api/playerProfiles'));
 	
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`)

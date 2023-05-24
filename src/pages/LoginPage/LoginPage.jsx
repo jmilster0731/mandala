@@ -1,10 +1,9 @@
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
-import * as usersService from "../../utilities/users-service"
+import * as usersService from "../../utilities/users-service";
 import { useState } from "react";
 import "./LoginPage.css";
 
 export default function LoginPage(props) {
-  const [inputValue, setInputValue] = useState("");
   const [showSignUpForm, setShowSignUpForm] = useState(false);
   const [credentials, setCredentials] = useState({
     email: "",
@@ -84,6 +83,7 @@ export default function LoginPage(props) {
                   >
                     {showSignUpForm ? "Back to Sign In" : "Sign Up"}
                   </button>
+                  {error && <p className="error-message">{error}</p>}
                 </div>
               </form>
             )}

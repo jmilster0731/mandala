@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import ForestMonsters from "../../Beastiary/ForestMonsters";
 import Encounter from "../../components/Encounter/Encounter";
 

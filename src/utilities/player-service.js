@@ -9,12 +9,14 @@ export function usePlayer() {
     dexterity: 10,
     wisdom: 10,
     charisma: 10,
-    currentHP: 0,
-    maxHP: 0,
-    currentMana: 0,
-    maxMana: 0,
+    currentHP: 0, 
+    maxHP: 0, 
+    currentMana: 0, 
+    maxMana: 0, 
     attackPower: 0,
   });
+
+  // eslint-disable-next-line
 
   useEffect(() => {
     const maxHP = 100 + player.constitution * 10;
@@ -29,6 +31,7 @@ export function usePlayer() {
       currentMana: maxMana,
       attackPower,
     }));
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
