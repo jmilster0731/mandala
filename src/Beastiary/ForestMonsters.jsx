@@ -16,9 +16,9 @@ const ForestMonsters = [
       attackPower: 0,
       introText: "You come across an Ankheg lurking in the forest!",
       counterAttackText: [
-        "The Ankheg scuttles towards you, its sharp mandibles clacking menacingly.",
-        "The ground trembles as the Ankheg burrows beneath the surface.",
-        "Acidic residue oozes from the Ankheg's mandibles, leaving a trail behind it."
+        "The Ankheg scuttles towards you, its sharp mandibles clacking menacingly. It strikes out at you",
+        "The ground trembles as the Ankheg burrows beneath the surface. Suddenly, it bursts back out of the ground to strike, ",
+        "Acidic residue oozes from the Ankheg's mandibles, leaving a trail behind it. As you maneuvered around to strike you stepped on the residue, "
       ]
     },
     {
@@ -39,9 +39,9 @@ const ForestMonsters = [
       attackPower: 0,
       introText: "You stumble upon an Awakened Tree standing tall in the forest!",
       counterAttackText: [
-        "The branches of the Awakened Tree sway ominously, as if reaching out to you.",
-        "The gnarled roots of the Awakened Tree grip the ground tightly, giving it a sturdy stance.",
-        "Leaves rustle on the Awakened Tree, whispering secrets of the forest."
+        "The branches of the Awakened Tree sway ominously, as if reaching out to you. Mesmerized you step toward the tree, and the branches suddenly strike you ",
+        "The gnarled roots of the Awakened Tree grip the ground tightly, giving it a sturdy stance. You notice too late that the roots of the tree have burst out from under you ",
+        "Leaves rustle on the Awakened Tree, whispering secrets of the forest. A psychic assault flood's your brain "
       ]
     },
     {
@@ -62,9 +62,9 @@ const ForestMonsters = [
       attackPower: 0,
       introText: "You encounter an enraged Dryad standing before you!",
       counterAttackText: [
-        "The Dryad's eyes glow with a vibrant green, filled with anger and disdain.",
-        "The air around the Dryad crackles with an otherworldly energy.",
-        "Flowers and plants wither in the presence of the wrathful Dryad."
+        "The Dryad's eyes glow with a vibrant green, filled with anger and disdain. Vines strike out at you ",
+        "The air around the Dryad crackles with an otherworldly energy. A ball of nature energy forms in her palm and she throw's it at you ",
+        "Flowers and plants wither in the presence of the wrathful Dryad. The field of decay saps you of your strength "
       ]
     }
   ];

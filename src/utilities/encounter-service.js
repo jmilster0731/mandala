@@ -80,7 +80,7 @@ const useEncounterService = (player, monsters, updatePlayer) => {
     } else {
       const monsterAttack = calculateDamage(currentMonster, player);
       const newPlayerHealth = player.currentHP - monsterAttack.damage;
-      const counterAttackMessage = `${getRandomCounterAttackText()} It dealt ${monsterAttack.damage} damage! Your health is now ${newPlayerHealth}.`;
+      const counterAttackMessage = `${getRandomCounterAttackText()} dealing ${monsterAttack.damage} damage! Your health is now ${newPlayerHealth}.`;
 
       if (newPlayerHealth <= 0) {
         const defeatMessage = `You were defeated by the ${currentMonster.name}! Game over.`;

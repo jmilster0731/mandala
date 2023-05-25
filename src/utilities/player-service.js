@@ -26,19 +26,54 @@ export function usePlayer(playerProfile) {
     const attackPower = player.strength * 2;
     const requiredExperience = 10 * player.level;
 
-    setPlayer((prevPlayer) => ({
-      ...prevPlayer,
-      maxHP,
-      currentHP: maxHP,
-      maxMana,
-      currentMana: maxMana,
-      attackPower,
-      requiredExperience,
-    }));
-  }, [player.constitution, player.intelligence, player.strength, player.level]);
+    if (player.currentExperience >= requiredExperience) {
+      const levelIncrease = Math.floor(player.currentExperience / requiredExperience);
+      const newLevel = player.level + levelIncrease;
+      const unassignedStatPoints = player.unassignedStatPoints + levelIncrease;
+      const skillPoints = player.skillPoints + levelIncrease;
+      const newCurrentExperience = player.currentExperience % requiredExperience;
+      const newConstitution = player.constitution + levelIncrease;
+      const newStrength = player.strength + levelIncrease;
+
+      setPlayer((prevPlayer) => {
+        const updatedPlayer = {
+          ...prevPlayer,
+          level: newLevel,
+          unassignedStatPoints,
+          skillPoints,
+          constitution: newConstitution,
+          strength: newStrength,
+          maxHP,
+          maxMana,
+          attackPower,
+          requiredExperience,
+          currentExperience: newCurrentExperience,
+        };
+
+        return updatedPlayer;
+      });
+    } else {
+      setPlayer((prevPlayer) => ({
+        ...prevPlayer,
+        maxHP,
+        maxMana,
+        attackPower,
+        requiredExperience,
+      }));
+    }
+  }, [player.constitution, player.intelligence, player.strength, player.level, player.currentExperience]);
 
   function updatePlayer(updatedPlayer) {
+    if (updatedPlayer.currentHP === undefined) {
+      updatedPlayer.currentHP = player.currentHP;
+    }
+
+    if (updatedPlayer.currentMana === undefined) {
+      updatedPlayer.currentMana = player.currentMana;
+    }
+
     setPlayer(updatedPlayer);
+
     if (playerProfile) {
       axios
         .put(`/api/playerprofiles/${playerProfile}`, updatedPlayer)
