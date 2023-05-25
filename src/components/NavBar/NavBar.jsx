@@ -20,9 +20,6 @@ export default function NavBar({ user, setUser }) {
           <div className="nav-element">Profiles</div>
         </div>
       </NavLink>
-      <span className="nav-bar-gen-text">
-        Welcome, {user.name}, Feel free to Explore the world of Mandala!{" "}
-      </span>
       <NavLink to="" onClick={handleLogOut}>
         <div className="right-nav-element-wrapper" id="z-index10">
           <div className="right-nav-element">Log Out!</div>
