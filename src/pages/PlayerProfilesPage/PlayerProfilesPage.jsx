@@ -66,6 +66,11 @@ export default function PlayerProfilesPage({ user, setPlayerProfile, currentPlay
                 <div className="profile-list-lable"> LEVEL </div>
                 <div className="profile-list-stat"> {profile.level} </div>
               </div>
+              <br />
+              <div className="profile-list-level">
+                <div className="profile-list-lable"> EXP </div>
+                <div className="profile-list-stat"> {profile.currentExperience} / {profile.requiredExperience} </div>
+              </div>
             </div>
             <div className="profile-list-stat-container">
               <div className="profile-list-lable"> HP </div>
