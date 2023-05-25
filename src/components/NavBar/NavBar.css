@@ -2,6 +2,7 @@
   height: 40px;
   width: 100%;
   background: darkslategrey;
+  overflow: hidden;
 }
 
 .nav-element-wrapper {
