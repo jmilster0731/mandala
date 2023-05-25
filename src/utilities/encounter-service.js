@@ -6,10 +6,11 @@ const useEncounterService = (player, monsters, updatePlayer) => {
   const [currentMonster, setCurrentMonster] = useState(null);
   const [previousCounterAttack, setPreviousCounterAttack] = useState("");
   const [encounterComplete, setEncounterComplete] = useState(false);
+  const [victoryExp, setVictoryExp] = useState(0); // New state for victory experience
 
   const handleEncounter = () => {
     const randomNumber = Math.random();
-  
+
     if (randomNumber < 0.8) {
       setMode("fight");
       const randomMonster =
@@ -19,11 +20,14 @@ const useEncounterService = (player, monsters, updatePlayer) => {
         `An encounter with ${randomMonster.name}!`,
         randomMonster.introText,
       ]);
+
+      // Set victory experience to 2 times the randomMonster's level
+      setVictoryExp(2 * randomMonster.level);
     } else {
       setMode("item");
       setBattleLog(["You found a rare item!"]);
     }
-  
+
     setEncounterComplete(false);
   };
 
@@ -59,21 +63,25 @@ const useEncounterService = (player, monsters, updatePlayer) => {
     const { damage, newDefenderHealth } = calculateDamage(player, currentMonster);
     const updatedMonster = { ...currentMonster, currentHP: newDefenderHealth };
     setCurrentMonster(updatedMonster);
-  
+
     const attackMessage = `You attacked the monster and dealt ${damage} damage! The monster's health is now ${newDefenderHealth}.`;
     setBattleLog((prevBattleLog) => [...prevBattleLog, attackMessage]);
-  
+
     if (newDefenderHealth <= 0) {
       const victoryMessage = `You defeated the ${currentMonster.name}!`;
       setEncounterComplete(true);
       setBattleLog([...battleLog, victoryMessage]);
       setCurrentMonster(null);
       setMode("victory");
+
+      // Add victoryExp to the player's currentExperience
+      const updatedPlayer = { ...player, currentExperience: player.currentExperience + victoryExp };
+      updatePlayer(updatedPlayer);
     } else {
       const monsterAttack = calculateDamage(currentMonster, player);
       const newPlayerHealth = player.currentHP - monsterAttack.damage;
       const counterAttackMessage = `${getRandomCounterAttackText()} It dealt ${monsterAttack.damage} damage! Your health is now ${newPlayerHealth}.`;
-  
+
       if (newPlayerHealth <= 0) {
         const defeatMessage = `You were defeated by the ${currentMonster.name}! Game over.`;
         setBattleLog([
@@ -82,7 +90,7 @@ const useEncounterService = (player, monsters, updatePlayer) => {
           defeatMessage,
           "Now that you've been defeated, there's only one option left.",
         ]);
-  
+
         if (!encounterComplete) {
           setCurrentMonster(null);
           setMode("gameover");

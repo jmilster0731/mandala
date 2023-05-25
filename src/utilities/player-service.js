@@ -24,6 +24,7 @@ export function usePlayer(playerProfile) {
     const maxHP = 100 + player.constitution * 10;
     const maxMana = 50 + player.intelligence * 5;
     const attackPower = player.strength * 2;
+    const requiredExperience = 10 * player.level;
 
     setPlayer((prevPlayer) => ({
       ...prevPlayer,
@@ -32,13 +33,15 @@ export function usePlayer(playerProfile) {
       maxMana,
       currentMana: maxMana,
       attackPower,
+      requiredExperience,
     }));
-  }, [player.constitution, player.intelligence, player.strength]);
+  }, [player.constitution, player.intelligence, player.strength, player.level]);
 
   function updatePlayer(updatedPlayer) {
     setPlayer(updatedPlayer);
     if (playerProfile) {
-      axios.put(`/api/playerprofiles/${playerProfile}`, updatedPlayer)
+      axios
+        .put(`/api/playerprofiles/${playerProfile}`, updatedPlayer)
         .then(() => {
           console.log('Player profile updated successfully');
         })
