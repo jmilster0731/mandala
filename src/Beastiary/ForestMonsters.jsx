@@ -2,6 +2,7 @@ const ForestMonsters = [
     {
       name: "Ankheg",
       description: "A large, cockroach-like creature.",
+      imgurl: "https://i.imgur.com/EWpRnrG.png",
       level: 1,
       constitution: 13,
       intelligence: 1,
@@ -25,6 +26,7 @@ const ForestMonsters = [
       name: "Awakened Tree",
       description:
         "This ordinary tree seems to have been given sentience and mobility by the awaken spell or similar magic.",
+      imgurl: "https://i.imgur.com/9YgS6ro.jpg",
       level: 2,
       constitution: 15,
       intelligence: 10,
@@ -48,6 +50,7 @@ const ForestMonsters = [
       name: "Dryad",
       description:
         "A beautiful nature spirit who has been angered by your disturbance of her forest...",
+      imgurl: "https://i.imgur.com/CRPYfhG.jpg",
       level: 3,
       constitution: 11,
       intelligence: 14,

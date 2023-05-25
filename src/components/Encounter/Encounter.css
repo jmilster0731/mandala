@@ -56,4 +56,12 @@
     position: relative;
     top: 1px;
   }
+
+  .picture-container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+  }
   

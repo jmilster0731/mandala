@@ -1,5 +1,5 @@
 import EncounterOptions from "./ChildComponents/EncounterOptions";
-import BattleLog from "./ChildComponents/BattleLog"
+import BattleLog from "./ChildComponents/BattleLog";
 import PlayerInfo from "./ChildComponents/PlayerInfo";
 import useEncounterService from "../../utilities/encounter-service";
 import "./Encounter.css";
@@ -13,7 +13,7 @@ const Encounter = ({ player, monsters, updatePlayer }) => {
     handleEncounter,
     handleAttack,
     handleNextEncounter,
-    handleRun
+    handleRun,
   } = useEncounterService(player, monsters, updatePlayer);
 
   return (
@@ -23,7 +23,15 @@ const Encounter = ({ player, monsters, updatePlayer }) => {
           ? currentMonster.name
           : "Encounter"}
       </h2>
-      <div className="picture-container">{/* Placeholder for picture */}</div>
+      <div className="picture-container">
+        {currentMonster?.imgurl && (
+          <img
+            src={currentMonster.imgurl}
+            alt=""
+            style={{ maxHeight: "200px" }}
+          />
+        )}
+      </div>
       <BattleLog
         mode={mode}
         currentMonster={currentMonster}
