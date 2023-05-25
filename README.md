@@ -12,7 +12,7 @@ A text based RPG based in the world of Mandala, which allows the user to create 
 
 This project was deployed onto Heroku, feel free to check it out!
 
-[PLACEHOLDER FOR DEPLOYMENT](https://www.github.com/jmilster0731/)
+[Click here to play!](https://mandala-game.herokuapp.com/)
 
 
 ## ScreenShots!
