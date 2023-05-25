@@ -6,8 +6,6 @@ import axios from "axios";
 export default function PlayerProfilesPage({ user, setPlayerProfile, currentPlayerProfile }) {
   const [playerProfiles, setPlayerProfiles] = useState([]);
 
-  
-
   useEffect(() => {
     const fetchPlayerProfiles = async () => {
       try {
