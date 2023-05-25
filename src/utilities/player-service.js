@@ -1,22 +1,24 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-export function usePlayer() {
-  const [player, setPlayer] = useState({
-    level: 1,
-    constitution: 30,
-    intelligence: 30,
-    strength: 45,
-    dexterity: 10,
-    wisdom: 10,
-    charisma: 10,
-    currentHP: 0, 
-    maxHP: 0, 
-    currentMana: 0, 
-    maxMana: 0, 
-    attackPower: 0,
-  });
+export function usePlayer(playerProfile) {
+  const [player, setPlayer] = useState({});
 
-  // eslint-disable-next-line
+  useEffect(() => {
+    const fetchPlayerData = async () => {
+      try {
+        if (playerProfile) {
+          const response = await axios.get(`/api/playerprofiles/profile/${playerProfile}`);
+          const playerData = response.data;
+          setPlayer(playerData);
+        }
+      } catch (error) {
+        console.error('Error fetching player data:', error);
+      }
+    };
+
+    fetchPlayerData();
+  }, [playerProfile]);
 
   useEffect(() => {
     const maxHP = 100 + player.constitution * 10;
@@ -31,24 +33,19 @@ export function usePlayer() {
       currentMana: maxMana,
       attackPower,
     }));
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    const maxHP = 100 + player.constitution * 10;
-    const maxMana = 50 + player.intelligence * 5;
-    const attackPower = player.strength * 2;
-
-    setPlayer((prevPlayer) => ({
-      ...prevPlayer,
-      maxHP,
-      maxMana,
-      attackPower,
-    }));
   }, [player.constitution, player.intelligence, player.strength]);
 
   function updatePlayer(updatedPlayer) {
     setPlayer(updatedPlayer);
+    if (playerProfile) {
+      axios.put(`/api/playerprofiles/${playerProfile}`, updatedPlayer)
+        .then(() => {
+          console.log('Player profile updated successfully');
+        })
+        .catch((error) => {
+          console.error('Error updating player profile:', error);
+        });
+    }
   }
 
   return { player, updatePlayer };

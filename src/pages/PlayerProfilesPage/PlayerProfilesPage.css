@@ -1,34 +1,91 @@
 .player-profile-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
-    padding: 20px;
-    border-radius: 25px;
-    width: 80%;
-    margin: 25px auto;
-    border: 3px solid black;
-    background: rgba(0, 17, 17, 0.63);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  padding: 20px;
+  border-radius: 25px;
+  width: 80%;
+  margin: 25px auto;
+  border: 3px solid black;
+  background: rgba(0, 17, 17, 0.63);
 }
 
 .player-profile-create-link-button {
-    font-size: 15px;
-    font-family: Arial;
-    width: 80%;
-    height: 33px;
-    border-width: 1px;
-    color: #fff;
-    border-color: #599bb3;
-    font-weight: bold;
-    border-radius: 15px;
-    box-shadow: 0px 10px 14px -7px #276873;
-    text-shadow: 0px 1px 0px #3d768a;
-    background: linear-gradient(#599bb3, #408c99);
-    margin-bottom: 5px;
-    text-align: center;
-    padding-top: 10px;
-    margin: auto;
+  font-size: 15px;
+  font-family: Arial;
+  width: 80%;
+  height: 33px;
+  border-width: 1px;
+  color: #fff;
+  border-color: #599bb3;
+  font-weight: bold;
+  border-radius: 15px;
+  box-shadow: 0px 10px 14px -7px #276873;
+  text-shadow: 0px 1px 0px #3d768a;
+  background: linear-gradient(#599bb3, #408c99);
+  margin-bottom: 5px;
+  text-align: center;
+  padding-top: 10px;
+  margin: auto;
 }
 
 .player-profile-create-link-button:hover {
-	background: linear-gradient(#408c99, #599bb3);
+  background: linear-gradient(#408c99, #599bb3);
 }
+
+.profile-list-container {
+  position: relative;
+  width: calc(100% - 50px);
+  display: grid;
+  column-gap: 50px;
+  grid-template-columns: repeat(5, 1fr);
+  margin-left: 12.5px;
+}
+
+.profile-list-object {
+  display: grid;
+  width: 90%;
+  grid-template-rows: 2fr repeat(9, 1fr);
+  border: 2px solid black;
+  row-gap: 5px;
+  padding: 25px;
+  border-radius: 25px;
+  color: white;
+  background: slategrey;
+}
+
+.profile-list-level {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.profile-list-stat-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.profile-list-lable {
+  width: calc(100%-50px);
+  text-align: center;
+}
+
+.profile-list-stat {
+  width: calc(100%-50px);
+  border-radius: 25px;
+  background: white;
+  border: solid black 3px;
+  text-align: center;
+  color: black;
+}
+
+.create-player-profile-form {
+    width: 25%;
+    display: grid;
+    grid-template-columns: repeat (3, 1fr);
+}
+
+.profile-list-object.selected {
+    color: black;
+    background-color: palegreen; 
+  }
+  

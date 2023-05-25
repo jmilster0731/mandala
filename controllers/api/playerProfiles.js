@@ -55,11 +55,10 @@ async function deleteProfile(req, res) {
 // Update a user profile
 async function updateProfile(req, res) {
   try {
-    const userId = req.user._id;
     const profileId = req.params.id;
 
     // Find the user profile associated with the given ID and user
-    const userProfile = await PlayerProfile.findOne({ _id: profileId, user: userId });
+    const userProfile = await PlayerProfile.findOne({ _id: profileId });
 
     if (!userProfile) {
       return res.status(404).json({ error: 'User profile not found' });
@@ -96,9 +95,28 @@ async function getAllProfiles(req, res) {
   }
 }
 
+async function getProfileById(req, res) {
+  try {
+    const profileId = req.params.id;
+    
+    // Retrieve the player profile by ID
+    const profile = await PlayerProfile.findById(profileId);
+    
+    if (!profile) {
+      return res.status(404).json({ error: 'Player profile not found' });
+    }
+    
+    res.json(profile);
+  } catch (error) {
+    console.error('Error retrieving player profile:', error);
+    res.status(500).json({ error: 'Failed to retrieve player profile' });
+  }
+}
+
 module.exports = {
   createProfile,
   deleteProfile,
   updateProfile,
   getAllProfiles,
+  getProfileById,
 };

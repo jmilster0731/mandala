@@ -3,8 +3,10 @@ import "./PlayerProfilesPage.css";
 import CreatePlayerProfile from "./childComponents/CreatePlayerProfile";
 import axios from "axios";
 
-export default function PlayerProfilesPage({ user }) {
+export default function PlayerProfilesPage({ user, setPlayerProfile, currentPlayerProfile }) {
   const [playerProfiles, setPlayerProfiles] = useState([]);
+
+  
 
   useEffect(() => {
     const fetchPlayerProfiles = async () => {
@@ -17,7 +19,7 @@ export default function PlayerProfilesPage({ user }) {
       }
     };
     fetchPlayerProfiles();
-  }, []);
+  }, [user._id]);
 
   const handleDeleteProfile = async (profileId) => {
     try {
@@ -44,17 +46,73 @@ export default function PlayerProfilesPage({ user }) {
     );
   }
 
+  let createProfileComponent = null;
+  if (playerProfiles.length < 5) {
+    createProfileComponent = <CreatePlayerProfile user={user} onCreateProfile={handleCreateProfile} />;
+  }
+
   return (
     <div className="player-profile-container">
       <h1>Player Profiles</h1>
-      {playerProfiles.map((profile) => (
-        <div key={profile._id}>
-          <h2>{profile.name}</h2>
-          <p>Level: {profile.level}</p>
-          <button onClick={() => handleDeleteProfile(profile._id)}>Delete</button>
-        </div>
-      ))}
-      <CreatePlayerProfile user={user} onCreateProfile={handleCreateProfile} />
+      <div className="profile-list-container">
+      {playerProfiles.map((profile) => (      
+          <div
+          className={`profile-list-object ${currentPlayerProfile === profile._id ? "selected" : ""}`}
+          key={profile._id}
+        >
+            <div className="profile-list-title-container">
+              <div className="profile-list-lable">{profile.name}</div>
+              <div className="profile-list-level">
+                <div className="profile-list-lable"> LEVEL </div>
+                <div className="profile-list-stat"> {profile.level} </div>
+              </div>
+            </div>
+            <div className="profile-list-stat-container">
+              <div className="profile-list-lable"> HP </div>
+              <div className="profile-list-stat"> {profile.currentHP} / {profile.maxHP} </div>
+            </div>
+            <div className="profile-list-stat-container">
+              <div className="profile-list-lable"> MP </div>
+              <div className="profile-list-stat"> {profile.currentMana} / {profile.maxMana} </div>
+            </div>
+            <div className="profile-list-stat-container">
+              <div className="profile-list-lable"> CON </div>
+              <div className="profile-list-stat"> {profile.constitution} </div>
+            </div>
+            <div className="profile-list-stat-container">
+              <div className="profile-list-lable"> INT </div>
+              <div className="profile-list-stat"> {profile.intelligence} </div>
+            </div>
+            <div className="profile-list-stat-container">
+              <div className="profile-list-lable"> STR </div>
+              <div className="profile-list-stat"> {profile.strength} </div>
+            </div>
+            <div className="profile-list-stat-container">
+              <div className="profile-list-lable"> DEX </div>
+              <div className="profile-list-stat"> {profile.dexterity} </div>
+            </div>
+            <div className="profile-list-stat-container">
+              <div className="profile-list-lable"> WIS </div>
+              <div className="profile-list-stat"> {profile.wisdom} </div>
+            </div>
+            <div className="profile-list-stat-container">
+              <div className="profile-list-lable"> CHA </div>
+              <div className="profile-list-stat"> {profile.charisma} </div>
+            </div>
+            <div className="profile-list-stat-container">
+              <button onClick={() => setPlayerProfile(profile._id)}>
+                Select
+              </button>
+              <button onClick={() => handleDeleteProfile(profile._id)}>
+                Delete
+              </button>
+            </div>
+            
+          </div>
+        ))
+      }
+      </div>
+      {createProfileComponent}
     </div>
   );
 }

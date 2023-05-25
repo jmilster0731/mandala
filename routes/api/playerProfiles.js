@@ -14,4 +14,7 @@ router.put('/:id', playerProfilesCtrl.updateProfile);
 // Retrieve all user profiles associated with the user
 router.get('/:id', playerProfilesCtrl.getAllProfiles);
 
+// Retrieve a specific user profile
+router.get('/profile/:id', playerProfilesCtrl.getProfileById);
+
 module.exports = router;

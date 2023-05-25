@@ -12,7 +12,8 @@ import CampsitePage from "../CampsitePage/CampsitePage";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const { player, updatePlayer } = usePlayer();
+  const [playerProfile, setPlayerProfile] = useState(null)
+  const { player, updatePlayer } = usePlayer(playerProfile);
 
   return (
     <>
@@ -39,7 +40,7 @@ export default function App() {
             <Route 
               path="/profiles"
               element={
-                <PlayerProfilesPage user={user} />
+                <PlayerProfilesPage user={user} setPlayerProfile={setPlayerProfile} currentPlayerProfile={playerProfile} />
               }
             />
           </Routes>
