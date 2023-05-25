@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Mandala
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A text based RPG based in the world of Mandala, which allows the user to create up to 5 individual playable Character Profiles and explore.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Author
 
-### `npm start`
+[James Milster](https://www.github.com/jmilster0731/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Deployment
 
-### `npm test`
+This project was deployed onto Heroku, feel free to check it out!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[PLACEHOLDER FOR DEPLOYMENT](https://www.github.com/jmilster0731/)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ScreenShots!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Login Page:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Login Page](https://media0.giphy.com/media/LMkEpdjIRr8uyHTvDs/giphy.gif)
 
-### `npm run eject`
+**Main Map**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+A simple Map UI allows the User to explore different parts of the world!
+![Main Map](https://i.imgur.com/z87O9kz.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Profile Page:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Swap between Profiles easily, and create them just as quickly!
 
-## Learn More
+![Profile Page](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExODRiZDAwM2UyNzA0Y2FjNDY0ZjliODU3MDE3MjlkNTU5NjFiMWU0NSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/7NN0AH13uyZ6JaPI7Q/giphy.gif)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Encounters!**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Though currently quite simple, you can battle Monsters and level up in the world of Mandala!
 
-### Code Splitting
+![Encounter Page](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmU4ODUzODU2ODVkOWZhM2I4NDhhMTNlNGQzMWQ4Nzg0MWNjNGY2MiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/unwLtEXLtEHkH5IEb3/giphy.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## 🛠 Skills
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## MERN Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Client:** 
 
-### Advanced Configuration
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Server:** 
 
-### Deployment
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Icebox Items:
+**This project was a proof of concept for React Skills and is not a Finished Product, in the future I'd like to include the following.**
 
-### `npm run build` fails to minify
+**Player Classes:**
+The ability to Choose a Classic Class similar to DND narratives with individual skills
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**More Areas to Discover**
+I'd like to include more encounter opportunities, and make them dependent on player progress.
+
+**Skills:**
+I'd like to introduce skills into the game, to allow the player a bit more than a hack and slash experience.
+
+**Quests / Town:**
+I'd like to make it so the player can be assigned Quests and visit the town for Items / interactions.
+
+**Items:**
+I'd like to include Items the player can use in battle or equip to alter their stats.
